@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/views/registerViews/register.scss"],"names":[],"mappings":"AAAA,eACE,YAAA,CACA,qBAAA,CACA,aAAA,CAAA,QAAA","file":"6.48f0836e.chunk.css","sourcesContent":[".register-form {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 24px;\r\n}\r\n"]}

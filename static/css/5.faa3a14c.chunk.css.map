@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/views/loginViews/login.scss"],"names":[],"mappings":"AAAA,YACE,YAAA,CACA,qBAAA,CACA,aAAA,CAAA,QAAA","file":"5.faa3a14c.chunk.css","sourcesContent":[".login-form {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 24px;\r\n}\r\n"]}
