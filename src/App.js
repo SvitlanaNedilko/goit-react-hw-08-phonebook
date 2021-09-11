@@ -9,6 +9,7 @@ import Navigation from './components/Navigation/Navigation'
 import PrivateRoute from './components/Route/PrivateRoute/PrivateRoute'
 import PublicRoute from './components/Route/PublicRoute/PublicRoute'
 import './App.scss'
+import { BASE_URL } from '.'
 
 const RegisterView = lazy(() => import('./views/registerViews/register'))
 const LoginView = lazy(() => import('./views/loginViews/login'))
@@ -33,27 +34,32 @@ function App() {
         <div className="AppRoot">
           <Switch>
             <Suspense fallback={<p>Загружаем....</p>}>
-              <PublicRoute exact path="/">
+              <PublicRoute exact path={`${BASE_URL}/`}>
                 <HomeView />
               </PublicRoute>
 
               <PublicRoute
-                path="/register"
+                path={`${BASE_URL}/register`}
                 restricted
-                redirectTo="/contactsbook"
+                redirectTo={`${BASE_URL}/contactsbook`}
               >
                 <RegisterView />
               </PublicRoute>
 
-              <PublicRoute path="/login" restricted redirectTo="/contactsbook">
+              <PublicRoute
+                path={`${BASE_URL}/login`}
+                restricted
+                redirectTo={`${BASE_URL}/contactsbook`}
+              >
                 <LoginView />
               </PublicRoute>
 
               {/* <Route path="/register" component={RegisterView} /> */}
 
-              {/* <Route path="/login" component={LoginView} /> */}
-
-              <PrivateRoute path="/contactsbook" redirectTo="/">
+              <PrivateRoute
+                path={`${BASE_URL}/contactsbook`}
+                redirectTo={`${BASE_URL}/`}
+              >
                 <ContactsView />
               </PrivateRoute>
             </Suspense>

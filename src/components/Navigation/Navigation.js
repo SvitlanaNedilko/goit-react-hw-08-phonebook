@@ -4,19 +4,25 @@ import { NavLink } from 'react-router-dom'
 import '../Navigation/Navigation.scss'
 import { UserMenu } from '../UserMenu/UserMenu'
 import authSelectors from '../../redux/auth/auth-selectors'
+import { BASE_URL } from '../../.'
 
 export default function Navigation() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggenIn)
   return (
     <div className="navigation">
       <nav>
-        <NavLink to="/" exact className="link" activeClassName="activlink">
+        <NavLink
+          to={`${BASE_URL}/`}
+          exact
+          className="link"
+          activeClassName="activlink"
+        >
           Home
         </NavLink>
         {!isLoggedIn && (
           <>
             <NavLink
-              to="/register"
+              to={`${BASE_URL}/register`}
               exact
               className="link"
               activeClassName="activlink"
@@ -24,7 +30,11 @@ export default function Navigation() {
               Registration
             </NavLink>
 
-            <NavLink to="/login" className="link" activeClassName="activlink">
+            <NavLink
+              to={`${BASE_URL}/login`}
+              className="link"
+              activeClassName="activlink"
+            >
               LogIn
             </NavLink>
           </>
@@ -32,7 +42,7 @@ export default function Navigation() {
 
         {isLoggedIn && (
           <NavLink
-            to="/contactsbook"
+            to={`${BASE_URL}/contactsbook`}
             className="link"
             activeClassName="activlink"
           >

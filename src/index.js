@@ -7,6 +7,8 @@ import './index.scss'
 import { store, persistor } from './redux/store'
 import { BrowserRouter } from 'react-router-dom'
 
+export const BASE_URL = '/goit-react-hw-08-phonebook'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
