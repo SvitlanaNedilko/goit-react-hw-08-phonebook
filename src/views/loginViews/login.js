@@ -1,7 +1,9 @@
+import { Button, TextField } from '@material-ui/core'
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import authOperathions from '../../redux/auth/auth-operathions'
+import './login.scss'
 
 export default function LoginView() {
   const dispatch = useDispatch()
@@ -27,31 +29,31 @@ export default function LoginView() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label className="ContactForm_Input">
-          Почта
-          <input
-            type="text"
-            value={email}
-            name="email"
-            // value={number}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label className="ContactForm_Input">
-          Пароль
-          <input
-            type="text"
-            value={password}
-            name="password"
-            // value={number}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">LogIn</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className="login-form">
+      <TextField
+        id="email"
+        name="email"
+        label="Почта"
+        onChange={handleChange}
+        value={email}
+        fullWidth
+      />
+      <TextField
+        id="password"
+        name="password"
+        label="Пароль"
+        onChange={handleChange}
+        value={password}
+        fullWidth
+      />
+      <Button
+        variant="outlined"
+        color="primary"
+        type="submit"
+        disabled={!(email && password)}
+      >
+        Log in
+      </Button>
+    </form>
   )
 }

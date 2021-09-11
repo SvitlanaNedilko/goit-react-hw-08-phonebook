@@ -5,12 +5,13 @@ import '../Navigation/Navigation.scss'
 import { UserMenu } from '../UserMenu/UserMenu'
 import authSelectors from '../../redux/auth/auth-selectors'
 import { BASE_URL } from '../../.'
+import { AppBar, Toolbar } from '@material-ui/core'
 
 export default function Navigation() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggenIn)
   return (
-    <div className="navigation">
-      <nav>
+    <AppBar position="static" color="default">
+      <Toolbar>
         <NavLink
           to={`${BASE_URL}/`}
           exact
@@ -39,18 +40,19 @@ export default function Navigation() {
             </NavLink>
           </>
         )}
-
         {isLoggedIn && (
-          <NavLink
-            to={`${BASE_URL}/contactsbook`}
-            className="link"
-            activeClassName="activlink"
-          >
-            contactsbook
-          </NavLink>
+          <>
+            <NavLink
+              to={`${BASE_URL}/contactsbook`}
+              className="link"
+              activeClassName="activlink"
+            >
+              contactsbook
+            </NavLink>
+            <UserMenu />
+          </>
         )}
-      </nav>
-      {isLoggedIn && <UserMenu />}
-    </div>
+      </Toolbar>
+    </AppBar>
   )
 }

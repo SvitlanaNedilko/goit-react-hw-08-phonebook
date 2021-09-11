@@ -1,7 +1,9 @@
+import { Button, TextField } from '@material-ui/core'
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import authOperathions from '../../redux/auth/auth-operathions'
+import './register.scss'
 
 export default function RegisterView() {
   const dispatch = useDispatch()
@@ -31,42 +33,39 @@ export default function RegisterView() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label className="ContactForm_Input">
-          Имя
-          <input
-            type="text"
-            value={name}
-            onChange={handleChange}
-            name="name"
-            // title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-            // required
-          />
-        </label>
-        <label className="ContactForm_Input">
-          Почта
-          <input
-            type="text"
-            value={email}
-            name="email"
-            // value={number}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label className="ContactForm_Input">
-          Пароль
-          <input
-            type="text"
-            value={password}
-            name="password"
-            // value={number}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className="register-form">
+      <TextField
+        id="name"
+        name="name"
+        label="Имя"
+        onChange={handleChange}
+        value={name}
+        fullWidth
+      />
+      <TextField
+        id="email"
+        name="email"
+        label="Почта"
+        onChange={handleChange}
+        value={email}
+        fullWidth
+      />
+      <TextField
+        id="password"
+        name="password"
+        label="Пароль"
+        onChange={handleChange}
+        value={password}
+        fullWidth
+      />
+      <Button
+        variant="outlined"
+        color="primary"
+        type="submit"
+        disabled={!(email && password && name)}
+      >
+        Sign up
+      </Button>
+    </form>
   )
 }

@@ -27,9 +27,7 @@ function App() {
   return (
     !isFetchingCurrentUser && (
       <>
-        <div className="AppRoot">
-          <Navigation />
-        </div>
+        <Navigation />
 
         <div className="AppRoot">
           <Switch>
@@ -53,8 +51,6 @@ function App() {
               >
                 <LoginView />
               </PublicRoute>
-
-              {/* <Route path="/register" component={RegisterView} /> */}
 
               <PrivateRoute
                 path={`${BASE_URL}/contactsbook`}
